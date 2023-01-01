@@ -9,8 +9,9 @@ import {
   BeforeUpdate,
   OneToOne,
   JoinColumn,
+  OneToMany,
 } from "typeorm";
-import Address from "./address.entities";
+import {Address, Project} from "./index";
 
 @Entity("users")
 class User {
@@ -60,6 +61,9 @@ class User {
   @OneToOne(() => Address)
   @JoinColumn()
   address: Address;
+
+  @OneToMany(() => Project, (project) => project.user)
+  projects: Project[];
 }
 
 export default User;

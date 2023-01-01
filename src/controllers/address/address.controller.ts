@@ -9,7 +9,6 @@ const createAddressController = async (req: Request, res: Response) => {
   const userId = req.user.id;
 
   const newAddress = await createAddressService(address, userId);
-  console.log("passei controller");
 
   return res.status(201).json(newAddress);
 };

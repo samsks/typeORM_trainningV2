@@ -1,4 +1,5 @@
-import User from "./user.entities";
-import Address from "./address.entities";
+import User from "./user.entity";
+import Address from "./address.entity";
+import Project from "./project.entity";
 
-export { User, Address };
+export { User, Address, Project };

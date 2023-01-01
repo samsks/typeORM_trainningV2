@@ -13,9 +13,24 @@ const userResponseSerializer: SchemaOf<IUserResponse> = yup.object().shape({
   email: yup.string().email().notRequired(),
   name: yup.string().notRequired(),
   type: yup.string().notRequired(),
-  id: yup.string().notRequired(),
+  id: yup.number().notRequired(),
   createdAt: yup.date().notRequired(),
   updatedAt: yup.date().notRequired(),
 });
 
-export { userSerializer, userResponseSerializer };
+const userWithoutPasswordSerializer: SchemaOf<IUserResponse> = yup
+  .object()
+  .shape({
+    email: yup.string().email().notRequired(),
+    name: yup.string().notRequired(),
+    type: yup.string().notRequired(),
+    id: yup.number().notRequired(),
+    createdAt: yup.date().notRequired(),
+    updatedAt: yup.date().notRequired(),
+  });
+
+export {
+  userSerializer,
+  userResponseSerializer,
+  userWithoutPasswordSerializer,
+};

@@ -6,10 +6,16 @@ export interface IUserRequest {
 }
 
 export interface IUserResponse {
-  id: string;
   name: string;
   email: string;
   type: string;
+  id: number;
   createdAt: Date;
   updatedAt: Date;
+}
+
+export interface IUserUpdateRequest {
+  name?: string;
+  email?: string;
+  password?: string;
 }
