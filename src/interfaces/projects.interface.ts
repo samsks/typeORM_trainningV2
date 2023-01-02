@@ -5,3 +5,12 @@ export interface IProjectReq {
   start_date: string;
   repository: string;
 }
+
+export interface ITechnology {
+  name: string;
+  added_in: string;
+}
+
+export interface ITechnologyToProject {
+  technologies: Array<ITechnology>;
+}

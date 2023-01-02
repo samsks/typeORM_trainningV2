@@ -11,7 +11,7 @@ import {
   JoinColumn,
   OneToMany,
 } from "typeorm";
-import {Address, Project} from "./index";
+import { Address, Project } from "../entities";
 
 @Entity("users")
 class User {

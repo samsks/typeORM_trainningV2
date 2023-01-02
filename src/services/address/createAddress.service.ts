@@ -1,14 +1,11 @@
 import { IAddress } from "../../interfaces/address.interface";
-import { User } from "../../entities";
-import { Address } from "../../entities";
+import { User, Address } from "../../entities";
 import AppDataSource from "../../data-source";
 
 const createAddressService = async (
   addressData: IAddress,
   userId: number
 ): Promise<Address> => {
-  console.log("entrei no service");
-
   const addressRepository = AppDataSource.getRepository(Address);
   const userRepository = AppDataSource.getRepository(User);
 
@@ -23,7 +20,6 @@ const createAddressService = async (
       address: newAddress,
     }
   );
-  console.log("passei service");
 
   return newAddress;
 };

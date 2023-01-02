@@ -1,6 +1,10 @@
 import * as yup from "yup";
 import { SchemaOf } from "yup";
-import { IUserRequest, IUserResponse } from "../interfaces/users.interface";
+import {
+  IUserRequest,
+  IUserResponse,
+  IUserUpdateRequest,
+} from "../interfaces/users.interface";
 
 const userSerializer: SchemaOf<IUserRequest> = yup.object().shape({
   email: yup.string().email().required(),
@@ -29,8 +33,15 @@ const userWithoutPasswordSerializer: SchemaOf<IUserResponse> = yup
     updatedAt: yup.date().notRequired(),
   });
 
+const userUpdateSerializer: SchemaOf<IUserUpdateRequest> = yup.object().shape({
+  email: yup.string().email().notRequired(),
+  name: yup.string().notRequired(),
+  password: yup.string().notRequired(),
+});
+
 export {
   userSerializer,
   userResponseSerializer,
   userWithoutPasswordSerializer,
+  userUpdateSerializer,
 };

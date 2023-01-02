@@ -16,7 +16,7 @@ const deleteProjectService = async (projectId: number): Promise<void> => {
   await projectRepository.softRemove(project);
   await projectRepository.save({
     ...project,
-    end_date: "2020-01-01",
+    end_date: new Date().toISOString().split("T")[0],
   });
 };
 

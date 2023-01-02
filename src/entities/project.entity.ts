@@ -4,8 +4,9 @@ import {
   Column,
   ManyToOne,
   DeleteDateColumn,
+  OneToMany,
 } from "typeorm";
-import { User } from "./index";
+import { User, TechnologyToProject } from "../entities";
 
 @Entity("projects")
 class Project {
@@ -38,6 +39,12 @@ class Project {
 
   @ManyToOne(() => User, (user) => user.projects)
   user: User;
+
+  @OneToMany(
+    () => TechnologyToProject,
+    (technologyToProject) => technologyToProject.project
+  )
+  technologiesToProjects: TechnologyToProject[];
 }
 
 export default Project;

@@ -1,6 +1,5 @@
 import AppDataSource from "../../data-source";
-import { User } from "../../entities";
-import { Project } from "../../entities";
+import { User, Project } from "../../entities";
 
 const listProjectsByUserService = async (
   userId: number
@@ -14,7 +13,7 @@ const listProjectsByUserService = async (
     relations: {
       projects: true,
     },
-    withDeleted: true,
+    withDeleted: true, // Opcional para aparecer os excluidos pelo soft delete
   });
 
   return user.projects;
